@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/~lottalau/proto/static/css/main.5f361e03.chunk.css",
+    "main.js": "/~lottalau/proto/static/js/main.8f737fe7.chunk.js",
+    "main.js.map": "/~lottalau/proto/static/js/main.8f737fe7.chunk.js.map",
+    "runtime-main.js": "/~lottalau/proto/static/js/runtime-main.61edf874.js",
+    "runtime-main.js.map": "/~lottalau/proto/static/js/runtime-main.61edf874.js.map",
+    "static/js/2.d4c38b8b.chunk.js": "/~lottalau/proto/static/js/2.d4c38b8b.chunk.js",
+    "static/js/2.d4c38b8b.chunk.js.map": "/~lottalau/proto/static/js/2.d4c38b8b.chunk.js.map",
+    "index.html": "/~lottalau/proto/index.html",
+    "precache-manifest.98e0f54bc2c920852520e97c4e764443.js": "/~lottalau/proto/precache-manifest.98e0f54bc2c920852520e97c4e764443.js",
+    "service-worker.js": "/~lottalau/proto/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/~lottalau/proto/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.d4c38b8b.chunk.js.LICENSE.txt": "/~lottalau/proto/static/js/2.d4c38b8b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61edf874.js",
+    "static/js/2.d4c38b8b.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.8f737fe7.chunk.js"
+  ]
+}
