@@ -27,25 +27,22 @@ export const SearchBar = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} style={formStyle}>
-            <br></br>
+        <form className='search' onSubmit={handleSubmit}>
+            <h3>Haku</h3>
             <label>Asiasana</label>
             <input type="text" 
                 value={search} 
                 onChange={(evt) => 
-                    setSearch(evt.target.value)}/>
-            <input type="submit" value="Hae" style={{backgroundColor: '#00b359'}}/>
-            <button onClick={emptySearch}>Näytä kaikki</button>
-            Tuloksia {results !== '' ? results : texts.length} kappaletta
+                    setSearch(evt.target.value)
+            }/>
+            <div className='buttonContainer'>
+                <div>
+                    <input className='openBTN' type="submit" value="Hae" style={{backgroundColor: '#00b359'}}/>
+                    <button className='openBTN' onClick={emptySearch}>Näytä kaikki</button>
+                </div>
+                <p className='note'>Tuloksia {results !== '' ? results : texts.length} kappaletta</p>
+            </div>
         </form>
     )
     
-}
-const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '60vh',
-    margin: 'auto',
-    border: 'dotted 2px #00b359'
 }

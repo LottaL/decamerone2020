@@ -17,6 +17,12 @@ import { Texts } from './Pages/Texts';
 import { LoginRegister } from './Pages/LoginRegister';
 
 function App() {
+  const goUp = () => {
+      const element = document.getElementById('headerNav');
+      console.log(element)
+      if (element) element.scrollIntoView({behavior: 'smooth'});
+  }
+
   return (
     <div className="App">
       <Router>
@@ -49,7 +55,10 @@ function App() {
             </TextContextProvider>
           </TextListContextProvider>
         </UserContextProvider> 
-      </Router>          
+      </Router>
+      <div id='return' onClick={goUp}>
+        <div className='arrow up'></div>  
+      </div>          
     </div>
   );
 }

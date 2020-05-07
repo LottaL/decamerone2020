@@ -14,8 +14,8 @@ export const Home = () => {
     }, [])
     return (
         <div className='Home'>
-            <h1>Kotisivu</h1>
-            <h2>Satunnainen näyteteksti sivun julkisten julkaisujen joukosta:</h2>
+            <h1>Tervetuloa lukemaan ja luomaan lyhytproosaa</h1>
+            <h2>Satunnainen näyteteksti:</h2>
             <TextCard addClass='onHomepage' t={texts[Math.floor(Math.random()*texts.length)]}/>
             <AboutContent/>
         </div>

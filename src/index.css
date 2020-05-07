@@ -41,6 +41,22 @@ p.iconText {
   margin: 0;
 }
 
+#return {
+  display: none;
+  background: linear-gradient(0deg, #033319, #087339);
+  background-color: #087339;
+  box-shadow: inset #4c93627d 0.1vh 0.1vh 2vh 0.5vh;
+  border: 1px #174d2f solid;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 5vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 1vh;
+  right: 1vh;
+}
+
 /*---------------NAVIGATION BAR & DROPDOWN-------------------*/
 
 .NavBar {
@@ -50,7 +66,7 @@ p.iconText {
 #headerNav {
   position: relative;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 header {
@@ -113,6 +129,7 @@ a:active {
   flex-direction: column;
   align-items: flex-end;
   padding: 5vw;
+  background: linear-gradient(0deg, #033319, #087339);
   background-color: #087339;
   width: 60%;
   position: absolute;
@@ -122,7 +139,7 @@ a:active {
   box-shadow: inset #4c93627d 0.1vh 0.1vh 2vh 0.5vh, #4c93627d -1vh 3vh 4vh 0.1vh;
   transform: translateY(0);
   transition: transform .5s cubic-bezier(.4,0,.2,1);
-  z-index: 0;
+  z-index: 1;
 }
 
 .dropdownMenu.hidden {
@@ -141,8 +158,8 @@ a:active {
   border-width: 0 1vh 1vh 0;
   display: inline-block;
   padding: 1vh;
-  width: 3vh;
-  height: 3vh;
+  width: 2vh;
+  height: 2vh;
   margin: 1vh;
 }
 
@@ -171,7 +188,6 @@ a:active {
 #face {
   height: 25vh;
   width: auto;
-  margin: auto;
 }
 
 .TextCard {
@@ -184,13 +200,13 @@ a:active {
   border-radius: 1vh;
 }
 
-.TextCard:hover {
+.TextCard:hover, .search:hover, .newTextContainer:hover {
   box-shadow: #4c93627d 0vh 0vh 1.2vh 0.5vh;
 }
 
-.TextCard p {
-  margin-left: 1vh;
-  margin-right: 1vh;
+.TextCard p, .TextCard h3 {
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
 
 .onHomepage {
@@ -233,7 +249,7 @@ a:active {
 	top: 1px;
 }
 
-.tags {
+.tags, .note {
   color: #776f6f;
   font-style: italic;
 }
@@ -244,6 +260,207 @@ a:active {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.search {
+  width: 80%;
+  width: 50%;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  box-shadow: #4c93627d 0vh 0vh 1vh 0.05vh
+}
+
+/*---------------MODAL------------------*/
+.Modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color: #77897254;
+  z-index: 2;
+}
+
+.ModalContent {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  margin-top: 2%;
+  background-color: #f5f3ef;
+  top: 2vh;
+  box-shadow: #4c93627d 0vh 0vh 1.2vh 0.5vh;
+  border-radius: 2vh;
+}
+
+.illustration {
+  max-width: 60%;
+  max-height: 50vh;
+  margin: auto;
+}
+
+.novella {
+  margin-left: 2vh;
+  margin-right: 2vh;
+  padding: 3vh;
+  text-align: left;
+}
+
+/*--------------PROFILE----------------*/
+.UserInfo {
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  box-shadow: #4c93627d 0vh 0vh 1vh 0.05vh
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4vh;
+}
+
+.profileIMG {
+  max-width: 60%;
+  max-height: 50vh;
+  border: #087339 solid 1.2vh
+}
+
+.userContainer ul {
+  list-style-type: none;
+  border: black 1px dotted;
+  text-align: left;
+  padding: 4vh;
+  box-shadow: #4c93627d 0vh 0vh 1vh 0.05vh
+}
+
+.userContainer li {
+  margin: 2vh;
+}
+
+.UserInfo form {
+  width: 60%;
+}
+
+.newTextContainer {
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  padding-top: 1vh;
+  margin-top: 1vh;
+  box-shadow: #4c93627d 0vh 0vh 1vh 0.05vh
+}
+
+.ownTexts {
+  margin-top: 4vh;
+}
+
+.UserInfo h2 {
+  padding-top: 3vh;
+  text-decoration: underline;
+}
+
+/*--------------FORMS------------------*/
+
+form {
+  background-color: white;
+  box-shadow: #4c93627d 0vh 0vh 1.2vh 0.5vh;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5vh;
+  text-align: left;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+}
+
+label p {
+  margin: 0;
+  margin-left: 2vh;
+}
+
+.newTitle {
+  width: 50%;
+  align-self: center;
+}
+
+textarea {
+  height: 25vh;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.buttonContainer * {
+  margin-right: 4vh;
+}
+
+input[type="checkbox"] {
+  transform: scale(2);
+}
+
+.delete {
+  border: red 2px solid;
+  margin-left: 1vh;
+}
+
+.LoginRegister form {
+  width: 50%;
+}
+
+/*--------------WALLOFTEXT----------------*/
+.About {
+  width: 90%;
+  text-align: left;
+  margin: auto;
+  margin-top: 2%;
+  background-color: white;
+  top: 2vh;
+  box-shadow: #4c93627d 0vh 0vh 1vh 0.05vh;
+}
+
+.About * {
+  margin-left: 4vh;
+  margin-right: 4vh;
+}
+
+.About h2 {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  text-align: center;
+}
+
+.personContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.section {
+  margin-bottom: 3vh;
+}
+
+#signature {
+  font-family: 'Marck Script', cursive;
+  font-size: 8vh;
+  text-align: center;
 }
 
 /*--------------RESPONSIVITY-----------*/
@@ -267,7 +484,42 @@ a:active {
   }
 }
 @media (max-width: 426px) {
+  img {
+    max-width: 90%;
+  }
   .TextCard {
     width: 90vw;
+  }
+  .UserInfo, .newTitle, .newTextContainer {
+    width: 100%;
+  }
+  .Modal {
+    width: 100vw;
+  }
+  .ModalContent {
+    width: 98vw;
+  }
+  .search {
+    width: 80%;
+  }
+  .openBTN {
+    max-height: 13vh;
+  }
+  .UserInfo form, .LoginRegister form {
+    width: 80%;
+  }
+  .profileIMG {
+    max-width: 80%;
+    max-height: 80%;
+  }
+  #return {
+    display: flex;
+  }
+  .personContainer {
+    flex-direction: column;
+    margin: 0
+  }
+  #signature {
+    font-size: 8vw;
   }
 }

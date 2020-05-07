@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { OneText } from './OneText';
 import { EditText } from './EditText';
+import { Modal } from './Modal';
 import { UserContext } from '../Contexts/UserContexts';
 import authorIcon from '../img/quillBottle_black.png';
 import likeIcon from '../img/like_black.png';
@@ -9,38 +10,46 @@ import newTextIcon from '../img/newText_white.png'
 const imgURL = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
 export const TextCard = (props) => {
-
-    const [state, setState] = useState(
-        {
-            showForm: false,
-            showEdit: false
-        }
-    );
+    const [showModal, setModal] = useState(false);
+    const [modalContent, setContent] = useState('view');
     const { user } = useContext(UserContext);
-    const toggleForm = (e) => {
-        e.preventDefault();
-        setState({showForm: !state.showForm});
-    }
+
     const toggleEdit = (e) => {
+        console.log('toggle edit')
         if (e) {
             e.preventDefault();
             e.stopPropagation();
         }
-        setState({showEdit: !state.showEdit});
+        setContent('edit');
+        setModal(!showModal);
+        console.log(showModal);
+    }
+
+    const toggleView = (e) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setContent('view');
+        setModal(!showModal);
+        console.log(showModal);
     }
 
     //name, username, image, description, tags
     if (props.t)
     {
         return (
-        <div className={props.addClass ? 'TextCard onHomepage' : 'TextCard'} onClick={toggleForm} >
-            <h3>{props.t.title}</h3>
+        <div className={props.addClass ? 'TextCard onHomepage' : 'TextCard'} onClick={toggleView} >
+            <h3>
+                {props.t.title.slice(0, 30)}
+                {props.t.title.length >= 30 ? '...' : ''}
+            </h3>
             <img className='cardIMG' src={imgURL + props.t.filename} alt='Thematic art'/>  
             <p>
                 {props.t.description.slice(0, 100)}
                 {props.t.description.length >= 100 ? '...' : ''}
             </p>
-            <button className='openBTN' onClick={toggleForm}>Avaa koko teksti</button>
+            <button className='openBTN' onClick={toggleView}>Avaa koko teksti</button>
             {props.t.author ? 
                 (user.user_id === props.t.author.user_id ? 
                     <button className='openBTN' onClick={toggleEdit}>
@@ -52,16 +61,16 @@ export const TextCard = (props) => {
                     : '')
                  : ''}
             {localStorage.getItem('token') ? 
-                <p>   
-                    <p className='iconText'>
+                <div>   
+                    <p className='iconText info'>
                         <img className='icon' alt='kirjoittaja' src={authorIcon}/>
                         {props.t.author ? props.t.author.username : ''} 
                     </p>
-                    <p className='iconText'>
+                    <p className='iconText info'>
                         <img className='icon' alt='tykkäyksiä' src={likeIcon}/>
                         {props.t.likes? props.t.likes.length : ''}
                     </p>
-                </p>
+                </div>
                 : 
                 ''}
             <p className='tags'>Aihesanat: {props.t.tags.map(i => { 
@@ -69,36 +78,23 @@ export const TextCard = (props) => {
                     return i + ' '
                 }
                 })}</p>
-
-            {state.showForm ? <OneText 
-                t={props.t} 
-                close={toggleForm} 
-                /*isCurrentUser={user.user_id === props.t.author.user_id}*/
-                /> : ''
-            }
-            {state.showEdit ? <EditText 
-                t={props.t} 
-                close={toggleEdit} 
-                isCurrentUser={user.user_id === props.t.author.user_id}
-                /> : ''
-            }
+            {showModal ? 
+                <Modal 
+                    t={props.t}
+                    setContent={setContent}
+                    setModal={setModal}
+                    toggleView={toggleView}
+                    toggleEdit={toggleEdit}
+                    modalContent={modalContent}/> 
+                : 
+                ''}
         </div>
         )
     } else {
         return (
-            <div className='TextCard' style={formStyle}>
-            
+            <div className='TextCard'>
+                Haetaan...
             </div>
         )
     }
-}
-
-const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '60vh',
-    margin: 'auto',
-    marginTop: '4vh',
-    border: 'dotted 2px #00b359'
 }

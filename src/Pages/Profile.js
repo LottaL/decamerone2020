@@ -8,14 +8,13 @@ import { UserContext } from '../Contexts/UserContexts';
 import { TextListContext } from '../Contexts/TextContexts';
 
 export const Profile = () => {
+    const { texts } = useContext(TextListContext);
     const { updateUser } = useContext(UserContext);
     const { logout } = useContext(UserContext);
     const { updateOwnTexts } = useContext(TextListContext)
     const history = useHistory();
 
-    const [state, setState] = useState({
-        showForm: false
-    })
+    const [showTexts, setTexts] = useState(false);
 
     const checkAuth = () => {
         updateUser()
@@ -26,14 +25,16 @@ export const Profile = () => {
         })
     }
 
-    const toggleForm = (e) => {
-        e.preventDefault();
-        setState({showForm: !state.showForm});
+    const seeTexts = () => {
+        setTexts(true);
+        const element = document.getElementById('ownTexts');
+        console.log(element)
+        if (element) element.scrollIntoView({behavior: 'smooth'});
     }
 
     useEffect(() => {
         checkAuth();
-        updateOwnTexts();
+        updateOwnTexts();   
     }, [])
     
     if (!localStorage.getItem('token')) {
@@ -42,11 +43,16 @@ export const Profile = () => {
         return (
             <div className='Profile'>
                 <h1>Profiili</h1>
+                <button className='openBTN' onClick={logout}>Kirjaudu ulos</button>
                 <UserInfo/>
-                <button onClick={logout}>Kirjaudu ulos</button>
-                <button onClick={toggleForm}>{state.showForm ? 'Sulje' : 'Lisää uusi teksti'}</button>
-                {state.showForm ? <NewText toggleForm={toggleForm}/> : ''}
-                <TextList/>
+                <div className='newTextContainer'>
+                    <a onClick={seeTexts}><h3>Olet kirjoittanut {texts.length} julkaisua</h3></a>
+                    <NewText/>
+                </div>
+                <div id='ownTexts' className='ownTexts'>
+                    <h2>Tarkastele omia tekstejäsi</h2>
+                    <TextList/>
+                </div>
             </div>
         )
     }

@@ -10,14 +10,16 @@ export const AboutContent = () => {
     return (
         <div className='About'>
             <h2>Tietoja projektista</h2>
-            <div>
+            <div className='section'>
                 <h3>Tekijä</h3>
-                <img id='face' alt='Kuva sivuston tekijästä' src={creatorIMG}/>
-                <p>
-                    Lotta Laukkanen, kolmannen vuoden tieto- ja viestintätekniikan opiskelija Metropolia Ammattikorkeakoulussa.
-                </p>
+                <div className='personContainer'>
+                    <img id='face' alt='Kuva sivuston tekijästä' src={creatorIMG}/>
+                    <p>
+                        Lotta Laukkanen, kolmannen vuoden tieto- ja viestintätekniikan opiskelija Metropolia Ammattikorkeakoulussa.
+                    </p>
+                </div>
             </div>
-            <div>
+            <div className='section'>
                 <h3>Sovelluksen yleiskuvaus</h3>
                 <p>
                     Decamerone on kirjoittamisesta kiinnostuneille suunnattu alusta, jossa käyttäjät voivat 
@@ -26,11 +28,9 @@ export const AboutContent = () => {
                     mutta palvelulla on tarjottavaa myös lähinnä lyhytproosan lukemisesta kiinnostuneille.
                 </p>
             </div>
-            <div>
+            <div className='section'>
                 <h3>Kokeilut ja arviot</h3>
-                Kokemuksia kokeiluista ja/tai heuristisesta arvioinnista (kuinka monelta saatiin palautetta, 
-                millaista, miten proto/sovellus muuttui tuon pohjalta?)
-                <h3>Ensimmäinen kokeilu: konsepti</h3>
+                <h4>Ensimmäinen kokeilu: konsepti</h4>
                 <img id='kokeilu1' alt='Kuva ensimmäisen kokeilun kokeilusuunnitelmasta' src={kokeilu1}/>
                 <p>
                     Ennen palvelun kehitystyön käynnistämistä tehtiin pieni selvitys Facebookin kautta. Tavoitteena 
@@ -40,7 +40,7 @@ export const AboutContent = () => {
                     verkkopalveluun.
                 </p>
                 <img id='kokeilu2' alt='Taulukko ensimmäisen kokeilun tuloksista' src={kokeilu2}/>
-                <h3>Toinen kokeilu, korvattiin heuristisella arvioinnilla</h3>
+                <h4>Toinen kokeilu, korvattiin heuristisella arvioinnilla</h4>
                 <p>
                     Heuristisessa arvioinnissa sovelluksen prototyyppi käytiin läpi pyrkien huomaamaan mahdollisimman 
                     moni käytettävyyteen ja käyttäjäkokemukseen vaikuttavista epäkohdista. Suurin osa huomatuista 
@@ -48,7 +48,7 @@ export const AboutContent = () => {
                 </p>
                 <img id='arvio' alt='Taulukko ensimmäisen kokeilun tuloksista' src={arvio}/>
             </div>
-            <div>
+            <div className='section'>
                 <h3>Oppimiskokemuksena</h3>
                 <p>
                     Projekti on jälleen laajentanut React-osaamista: erityisesti Context API on tullut tutuksi. 
@@ -58,6 +58,7 @@ export const AboutContent = () => {
                     tapauksessa mututuntuman varaan.
                 </p>
             </div>
+            <div id='signature'>~ Lotta Laukkanen ~</div>
         </div>
     );
 }

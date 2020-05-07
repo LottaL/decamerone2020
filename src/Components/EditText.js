@@ -46,17 +46,18 @@ export const EditText = (props) => {
     }
 
     return (
-        <div className='EditText' style={ModalStyle}>
-            <form onSubmit={handleSubmit} style={formStyle}>
-                <button onClick={props.close}>Sulje</button>
+        <div className='EditText' >
+            <form onSubmit={handleSubmit}>
+                <button className='openBTN' onClick={() => props.setContent('view')}>Paluu katseluun</button>
                 <h3>Muokkaa tekstiä</h3>
-                <br></br>
-                <img src={imgURL + props.t.filename} alt='Thematic art'/>
+                <img className='illustration' src={imgURL + props.t.filename} alt='Kuvituskuva'/>
+                <label>Uusi otsikko</label>
                 <input type="text" 
                     value={title} 
                     placeholder={props.t.title} 
                     onChange={(evt) => 
                         setTitle(evt.target.value)}/>
+                <label>Muokattu teksti</label>
                 <textarea type="text" 
                     value={description} 
                     placeholder={props.t.description}
@@ -72,7 +73,7 @@ export const EditText = (props) => {
                     placeholder={'lisää asiasanoja'}           
                     onChange={(evt) => 
                         setTags(evt.target.value)}/>
-                <label>Vain rekisteröityneille</label>
+                <label>Vain rekisteröityneille </label>
                 <p className='note'>Huom! Julkista tekstiä ei voi jälkeenpäin muuttaa yksityiseksi!</p>
                 <input
                     name="isPrivate"
@@ -87,30 +88,14 @@ export const EditText = (props) => {
                             setPrivate(evt.target.value)
                         }
                     }} />
-                <input type="submit" value="Tallenna" style={{backgroundColor: '#00b359'}}/>
+                <div className='buttonContainer'>
+                    <input className='openBTN' type="submit" value="Tallenna" style={{backgroundColor: '#00b359'}}/>
+                    <p className='note'>Huom! Poistettu teksti poistuu pysyvästi.</p>
+                    <button className='openBTN delete' onClick={verifyDelete}>Poista teksti</button>
+                </div>
+                
             </form>
-            <br></br>
-            <button onClick={verifyDelete}>Poista teksti</button>
+            <br></br>     
         </div>
     );
-}
-
-const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '60vh',
-    margin: 'auto',
-    border: 'dotted 2px #00b359'
-}
-
-const ModalStyle = {
-    display: 'flex',
-    position: 'absolute',
-    backgroundColor: 'lightgray',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '80vh',
-    margin: 'auto',
-    border: 'dotted 2px #00b359'
 }

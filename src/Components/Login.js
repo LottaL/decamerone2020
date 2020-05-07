@@ -25,7 +25,7 @@ export const Login = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} style={formStyle}>
+        <form onSubmit={handleSubmit}>
             <br></br>
             <label>Käyttäjänimi</label>
             <input type="text" 
@@ -39,16 +39,8 @@ export const Login = () => {
                 required
                 onChange={(evt) => 
                     setPassword(evt.target.value)}/>
-            <input type="submit" value="Kirjaudu sisään" style={{backgroundColor: '#00b359'}}/>
+            <input className='openBTN' type="submit" value="Kirjaudu sisään" style={{backgroundColor: '#00b359'}}/>
         </form>
     )
     
-}
-const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '60vh',
-    margin: 'auto',
-    border: 'dotted 2px #00b359'
 }

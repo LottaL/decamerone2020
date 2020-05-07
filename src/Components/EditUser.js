@@ -9,6 +9,7 @@ export const EditUser = () => {
     const { editUser } = useContext(UserContext);
     const { user } = useContext(UserContext);
 
+    const [showForm, setForm] = useState(false);
     const [username, setUsername] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -16,6 +17,16 @@ export const EditUser = () => {
     const [email, setEmail] = useState('');
     const [image, setImage] = useState('');
     
+    const close = () => {
+        setForm(false);
+        setUsername('');
+        setName('');
+        setPassword('');
+        setPassword2('');
+        setEmail('');
+        setImage('');
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
         let userObject = {};
@@ -31,14 +42,13 @@ export const EditUser = () => {
             }
         }
         editUser(userObject, {file: image, title: user.username, description: 'profile'});
-        /*if(image){
-            uploadProfileImg(localStorage.getItem('token'), {file: image, title: user.username, description: 'profile'});
-        }*/
     }
 
     return (
-        <form onSubmit={handleSubmit} style={formStyle}>
-            <br></br>
+        <div>
+        {showForm ?
+        <form onSubmit={handleSubmit}>
+            <h3>Muokkaa käyttäjätietoja</h3>
             <label>Etunimi sukunimi</label>
             <input type="text" 
                 value={name}  
@@ -68,15 +78,15 @@ export const EditUser = () => {
                 value={password2} 
                 onChange={(evt) => 
                     setPassword2(evt.target.value)}/>
-            <input type="submit" value="Lähetä tiedot" style={{backgroundColor: '#00b359'}}/>
+            <div className='buttonContainer'>
+                <input className='openBTN' type="submit" value="Lähetä tiedot" style={{backgroundColor: '#00b359'}}/>
+                <button className='openBTN' onClick={close}>peruuta</button>
+            </div>
+            
         </form>
+        :
+        <button className='openBTN' onClick={() => setForm(true)}>Muokkaa käyttäjätietoja</button>
+        }
+        </div>
     )
-}
-const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '60vh',
-    margin: 'auto',
-    border: 'dotted 2px #00b359'
 }

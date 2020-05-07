@@ -5,8 +5,8 @@ import {AboutContent} from '../Components/AboutContent';
 
 export const About = () => {
     return (
-        <div className='About'>
-            <h1>Tietoja projektista</h1>
+        <div className='AboutPage'>
+            <h1>Tietoja</h1>
             <AboutContent/>
         </div>
     );

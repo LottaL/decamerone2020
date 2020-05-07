@@ -26,7 +26,7 @@ export const Register = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} style={formStyle}>
+        <form onSubmit={handleSubmit}>
             <br></br>
             <label>Etunimi sukunimi</label>
             <input type="text" 
@@ -62,15 +62,7 @@ export const Register = () => {
                 required
                 onChange={(evt) => 
                     setPassword2(evt.target.value)}/>
-            <input type="submit" value="Rekisteröidy" style={{backgroundColor: '#00b359'}}/>
+            <input className='openBTN' type="submit" value="Rekisteröidy" style={{backgroundColor: '#00b359'}}/>
         </form>
     )
-}
-const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
-    width: '60vh',
-    margin: 'auto',
-    border: 'dotted 2px #00b359'
 }
