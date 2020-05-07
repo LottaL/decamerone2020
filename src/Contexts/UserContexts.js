@@ -44,23 +44,25 @@ export const UserContextProvider = (props) => {
                 return false;
             }
         })
+        .catch(err => console.log(err))
     }
 
-    
     const logout = () => {
         setUser('');
         localStorage.clear();
         history.push('/');
     }
 
-    const editUser = (userObject) => {
+    const editUser = (userObject, imageObj) => {
         edit(localStorage.getItem('token'), userObject)
         .then(res => {
-            console.log(res);
-            if(res.error) {
-                alert("Tietojen päivitys ei onnistunut");
+            if (imageObj.file !== '') {
+                uploadProfileImg(localStorage.getItem('token'), imageObj)
+                .then(res => updateUser())
+            } else {
+                updateUser()
             }
-            updateUser();
+
         })
     }
 

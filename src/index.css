@@ -5,9 +5,269 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #f5f3ef;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: #0b3b19;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #058129;
+}
+
+.icon {
+  height: 3vh;
+  width: auto;
+  padding-left: 1vh;
+  padding-right: 1vh;
+}
+
+.iconText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+p.iconText {
+  margin: 0;
+}
+
+/*---------------NAVIGATION BAR & DROPDOWN-------------------*/
+
+.NavBar {
+  box-shadow: #4c93627d 0vh 1vh 3vh 0.1vh;
+}
+
+#headerNav {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+header {
+  background-image: url('./img/Decamerone.jpg');/*url("./img/paper.png");*/
+  background-color: #c39a4e;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20vh;
+}
+
+header p {
+  height: 100%;
+  margin: 0;
+  padding: 5vh;
+  background-color: #ffffff96;
+  font-family: 'Marck Script', cursive;
+  font-size: 10vh;
+}
+
+#bannerIMG {
+  height: 10vh;
+  width: auto;
+  margin: auto;
+}
+
+.menuDesktop {
+  display: flex;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+}
+
+.menuItems a, #navText {
+  color: white;
+  font-size: 3vh;
+}
+
+a:active {
+  font-weight: bold;
+}
+
+#navText {
+  font-size: 4.5vh;
+  font-weight: 700;
+}
+
+.current {
+  font-weight: bold;
+}
+
+.menuItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #087339;
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 5vw;
+  background-color: #087339;
+  width: 60%;
+  position: absolute;
+  right: 0;
+  border-bottom-left-radius: 5vh;
+  border-bottom-right-radius: 5vh;
+  box-shadow: inset #4c93627d 0.1vh 0.1vh 2vh 0.5vh, #4c93627d -1vh 3vh 4vh 0.1vh;
+  transform: translateY(0);
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+  z-index: 0;
+}
+
+.dropdownMenu.hidden {
+  transform: translateY(-70vh);
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+
+.dropdownMenu a {
+  padding: 2vh;
+}
+
+/*-----------ARROWS FROM MY OTHER PROJECT---------*/
+
+.arrow {
+  border: solid white;
+  border-width: 0 1vh 1vh 0;
+  display: inline-block;
+  padding: 1vh;
+  width: 3vh;
+  height: 3vh;
+  margin: 1vh;
+}
+
+.up {
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  transition: transform .5s cubic-bezier(.4,0,.2,1)
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transition: transform .5s cubic-bezier(.4,0,.2,1)
+}
+
+/*----------HOME / LANDING PAGE-------------------*/
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/*----------TEXT CARDS AND IMAGES------------------*/
+
+#face {
+  height: 25vh;
+  width: auto;
+  margin: auto;
+}
+
+.TextCard {
+  display: flex;
+  flex-direction: column;
+  width: 23vw;
+  margin: 1vh;
+  background-color: white;
+  box-shadow: #4c93627d 0vh 0vh 1vh 0.05vh;
+  border-radius: 1vh;
+}
+
+.TextCard:hover {
+  box-shadow: #4c93627d 0vh 0vh 1.2vh 0.5vh;
+}
+
+.TextCard p {
+  margin-left: 1vh;
+  margin-right: 1vh;
+}
+
+.onHomepage {
+  width: 60vw;
+}
+
+.cardIMG {
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+
+.openBTN {
+	box-shadow: inset -0.01vh 0.2vh 0vh 0vh #184b30;
+	background: linear-gradient(to bottom, #0f8143 5%,  #195133 100%);
+	background-color: #0f8143;
+	border-radius: 3vh;
+	border: 1px solid #184b30;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 100%;
+	font-weight: bold;
+	padding: 1vh 2vh;
+	text-decoration: none;
+  text-shadow: 0px 1px 0px #184b30;
+  
+  max-width: 80%;
+  margin: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.openBTN:hover {
+	background: linear-gradient(to bottom, #0f8143 5%, #4c9362 100%);
+	background-color: #4c9362;
+}
+.openBTN:active {
+	position: relative;
+	top: 1px;
+}
+
+.tags {
+  color: #776f6f;
+  font-style: italic;
+}
+
+/*--------------TEXT LISTS--------------*/
+.TextList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/*--------------RESPONSIVITY-----------*/
+
+.menuMobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .menuDesktop {
+    display: none;
+  }
+  .menuMobile {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    z-index: 2;
+  }
+  .TextCard {
+    width: 46vw;
+  }
+}
+@media (max-width: 426px) {
+  .TextCard {
+    width: 90vw;
+  }
 }

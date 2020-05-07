@@ -4,7 +4,11 @@ import {
     postText, 
     getAuthors, 
     getOwnTexts,
-    putText 
+    putText,
+    addTags,
+    delText, 
+    addLike,
+    removeLike
 } from '../Scripts/fetchTexts';
 
 //creating and updating texts
@@ -20,20 +24,55 @@ export const TextContextProvider = (props) => {
         }
     );
     const oneText = (inputObject) => {
-        setText(inputObject)
+        setText(inputObject);
     }
 
     const saveText = (inputObject, tags) => {
-        postText(localStorage.getItem('token'), inputObject, tags)
+        return postText(localStorage.getItem('token'), inputObject, tags);
+    }
+
+    const deleteText = (file_id) => {
+        return delText(localStorage.getItem('token'), file_id)
+        .then(res => {
+            return res;
+        });
     }
 
     const editText = (textObj, tags, file_id) => {
-        putText(localStorage.getItem('token'), textObj, tags, file_id)
-        .then(res => console.log(res))
+        return putText(localStorage.getItem('token'), textObj, tags, file_id)
+        .then(res => {
+            return addTags(localStorage.getItem('token'), tags, file_id)
+            .then(res => true)
+        });
+        
+    }
+
+    const likeText = (file_id) => {
+        return addLike(localStorage.getItem('token'), file_id)
+        .then(res => {
+            if (res) {
+                console.log('liked');
+            } else {
+                console.log('cannot like');
+            }
+            return res;
+        })
+    }
+
+    const unlikeText = (file_id) => {
+        return removeLike(localStorage.getItem('token'), file_id)
+        .then(res => {
+            if (res) {
+                console.log('unliked');
+            } else {
+                console.log('cannot unlike');
+            }
+            return res;
+        })
     }
 
     return (
-        <TextContext.Provider value={{text, oneText, saveText, editText}}>
+        <TextContext.Provider value={{text, oneText, saveText, editText, deleteText, likeText, unlikeText}}>
             {props.children}
         </TextContext.Provider>
     );

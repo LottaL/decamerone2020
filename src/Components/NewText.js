@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { TextContext } from '../Contexts/TextContexts';
+import { TextContext, TextListContext } from '../Contexts/TextContexts';
 
-export const NewText = () => {
+export const NewText = (props) => {
     const { saveText } = useContext(TextContext);
+    const { updateTexts } = useContext(TextListContext);
 
     const [title, setTitle] = useState('');
     const [tags, setTags] = useState('');
@@ -20,7 +21,12 @@ export const NewText = () => {
         let trimmed = tags.split(' ').map(t => t.trim().toLowerCase());
         let visibility = isPrivate ? 'private' : 'public';
         let tagArray = ['decamerone', visibility, ...trimmed];
-        saveText(textObj, tagArray);
+        saveText(textObj, tagArray)
+        .then(res => {
+            console.log(res);
+            updateTexts();
+            props.toggleForm();
+        })
     }
     return (
         <form onSubmit={handleSubmit} style={formStyle}>
@@ -49,6 +55,7 @@ export const NewText = () => {
                 onChange={(evt) => 
                     setTags(evt.target.value)}/>
             <label>Vain rekisteröityneille</label>
+            <p className='note'>Huom! Julkista tekstiä ei voi jälkeenpäin muuttaa yksityiseksi!</p>
             <input
                 name="isPrivate"
                 type="checkbox"

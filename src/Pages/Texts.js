@@ -12,17 +12,10 @@ export const Texts = () => {
     );
 
     const toggleForm = (e) => {
-        e.preventDefault();
+        if (e) e.preventDefault();
         setState({showForm: !state.showForm});
     }
-    
-    const checkAuth = () => {
-        updateUser()
-        .then(res => {
-            console.log(res);
-        })
-    }
-
+//<button onClick={toggleForm}>{state.showForm ? 'Sulje' : 'Lisää uusi teksti'}</button>
     useEffect(() => {
         updateTexts();
         updateUser();
@@ -31,7 +24,7 @@ export const Texts = () => {
         <div className='Texts'>
             <h1>Kirjoitukset</h1>
             <button onClick={toggleForm}>{state.showForm ? 'Sulje' : 'Lisää uusi teksti'}</button>
-            {state.showForm ? <NewText/> : ''}
+            {state.showForm ? <NewText toggleForm={toggleForm}/> : ''}
             <TextList/>
         </div>
     );

@@ -1,17 +1,32 @@
 import React, { useState, useContext } from 'react';
-import { TextContext } from '../Contexts/TextContexts';
+import { TextContext, TextListContext } from '../Contexts/TextContexts';
 
 const imgURL = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
 export const EditText = (props) => {
     //edit function etc here
     const { editText } = useContext(TextContext);
+    const { updateTexts } = useContext(TextListContext);
+    const { deleteText } = useContext(TextContext);
 
     const [title, setTitle] = useState('');
     const [tags, setTags] = useState('');
-    const [image, setImage] = useState('');
     const [description, setDesc] = useState('');
     const [isPrivate, setPrivate] = useState(false);
+
+    const verifyDelete = (evt) => {
+        evt.preventDefault();
+        if (window.confirm('Olet poistamassa tekstiä. Jatketaanko?')) {
+            deleteText(props.t.file_id)
+            .then(res => {
+                if (res.message === 'File deleted') {
+                    props.close();
+                    alert('Tiedosto poistettu');
+                    updateTexts();
+                }
+            })
+        }
+    }
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -21,9 +36,13 @@ export const EditText = (props) => {
         } 
         let trimmed = tags.split(' ').map(t => t.trim().toLowerCase());
         let visibility = isPrivate ? 'private' : 'public';
-        let tagArray = ['decamerone', visibility, ...trimmed];
+        let tagArray = [...trimmed, visibility];
         console.log(textObj, tagArray);
-        editText(textObj, tags, props.t.file_id)
+        editText(textObj, tagArray, props.t.file_id)
+        .then(res => {
+            props.close();
+            updateTexts();
+        })
     }
 
     return (
@@ -42,17 +61,19 @@ export const EditText = (props) => {
                     value={description} 
                     placeholder={props.t.description}
                     onChange={(evt) => 
-                        setDesc(evt.target.value)}/>        
-                <input type="text"
-                    value={tags} 
-                    placeholder={props.t.tags.map(i => { 
+                        setDesc(evt.target.value)}/>
+                <label className='tags'>Asiasanat: {props.t.tags.map(i => { 
                             if (i !== 'public' && i !== 'private' && i !== 'decamerone') {
                                 return i + ' '
                             }
-                        })}            
+                        })}</label>        
+                <input type="text"
+                    value={tags} 
+                    placeholder={'lisää asiasanoja'}           
                     onChange={(evt) => 
                         setTags(evt.target.value)}/>
                 <label>Vain rekisteröityneille</label>
+                <p className='note'>Huom! Julkista tekstiä ei voi jälkeenpäin muuttaa yksityiseksi!</p>
                 <input
                     name="isPrivate"
                     type="checkbox"
@@ -68,6 +89,8 @@ export const EditText = (props) => {
                     }} />
                 <input type="submit" value="Tallenna" style={{backgroundColor: '#00b359'}}/>
             </form>
+            <br></br>
+            <button onClick={verifyDelete}>Poista teksti</button>
         </div>
     );
 }

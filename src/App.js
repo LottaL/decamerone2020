@@ -29,6 +29,9 @@ function App() {
                 <Route exact path="/">
                   <Home />
                 </Route>
+                <Route exact path="/~lottalau/proto/">
+                  <Home/>
+                </Route>
                 <Route path="/tietoa">
                   <About />
                 </Route>

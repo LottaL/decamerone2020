@@ -30,10 +30,10 @@ export const EditUser = () => {
                 userObject[obj] = state[obj];
             }
         }
-        editUser(userObject);
-        if(state.image){
+        editUser(userObject, {file: image, title: user.username, description: 'profile'});
+        /*if(image){
             uploadProfileImg(localStorage.getItem('token'), {file: image, title: user.username, description: 'profile'});
-        }
+        }*/
     }
 
     return (

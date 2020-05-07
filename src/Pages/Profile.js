@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 
 import { UserInfo } from '../Components/UserInfo';
@@ -13,6 +13,10 @@ export const Profile = () => {
     const { updateOwnTexts } = useContext(TextListContext)
     const history = useHistory();
 
+    const [state, setState] = useState({
+        showForm: false
+    })
+
     const checkAuth = () => {
         updateUser()
         .then(res => {
@@ -20,6 +24,11 @@ export const Profile = () => {
                 history.push('/profiili')
             }
         })
+    }
+
+    const toggleForm = (e) => {
+        e.preventDefault();
+        setState({showForm: !state.showForm});
     }
 
     useEffect(() => {
@@ -35,7 +44,8 @@ export const Profile = () => {
                 <h1>Profiili</h1>
                 <UserInfo/>
                 <button onClick={logout}>Kirjaudu ulos</button>
-                <NewText/>
+                <button onClick={toggleForm}>{state.showForm ? 'Sulje' : 'Lisää uusi teksti'}</button>
+                {state.showForm ? <NewText toggleForm={toggleForm}/> : ''}
                 <TextList/>
             </div>
         )

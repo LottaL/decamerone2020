@@ -10,7 +10,6 @@ export const registerUser = (userObject) => {
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res);
         return res})
     .catch(err => console.log(err))
 }
@@ -42,6 +41,7 @@ export const checkUser = (token) => {
 }
 
 export const editUser = (token, userObject) => {
+    console.log(userObject);
     if (userObject) {
         return fetch(URL + "/users", {
             method: 'PUT',
@@ -51,24 +51,21 @@ export const editUser = (token, userObject) => {
             },
             body: JSON.stringify(userObject)
         })
-        .then(res => res.json())
         .then(res => {
-            if(res.message) {
-                //no distinct error codes or messages in finnish
-                return {error: res}
-            } else {
-                return res
-            }
+            if (res.status === 200) return res.json()
+            else return {error: res.status, message: res.statusText}
+            
+        })
+        .then(res => {
+            return res
         })
         .catch(err => console.log(err))
     } else {
-        console.log(userObject);
+        return null;
     }
 }
 
 export const uploadProfileImg = (token, imgObject) => {
-    console.log(token);
-    console.log(imgObject);
     let formData  = new FormData();
     for(const key in imgObject) {
         formData.append(key, imgObject[key]);
@@ -85,9 +82,14 @@ export const uploadProfileImg = (token, imgObject) => {
         },
         body: formData
     })
-    .then(res => res.json())
     .then(res => {
-        console.log(res);
+        if (res.status === 201) {
+            return res.json()
+        } else {
+            return {error: res.json()}
+        }      
+    })
+    .then(res => {
         return fetch(URL + "/favourites", {
             method: 'POST',
             headers: {
@@ -96,7 +98,8 @@ export const uploadProfileImg = (token, imgObject) => {
             },
             body: JSON.stringify({file_id: res.file_id})
         })
-        .then(res => res.json())
+        .then(res => {
+            return res.json()})
         .then(res => res)
         .catch(err => console.log(err))
     })
