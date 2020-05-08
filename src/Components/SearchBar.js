@@ -29,7 +29,7 @@ export const SearchBar = (props) => {
     return (
         <form className='search' onSubmit={handleSubmit}>
             <h3>Haku</h3>
-            <label>Asiasana</label>
+            <label>Aihesana</label>
             <input type="text" 
                 value={search} 
                 onChange={(evt) => 

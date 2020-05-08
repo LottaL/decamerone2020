@@ -53,7 +53,7 @@ export const NewText = (props) => {
                         required
                         onChange={(evt) => 
                             setImage(evt.target.files[0])}/>
-                    <label>Tunnisteet</label>
+                    <label>Aihesanat</label>
                     <input type="text"
                         value={tags} 
                         onChange={(evt) => 

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/~lottalau/decamerone/precache-manifest.a3efc2e31a2f74aa4c57642c4820f9a7.js"
+  "/~lottalau/decamerone/precache-manifest.55026e35da03f7bc051659fb375d9231.js"
 );
 
 self.addEventListener('message', (event) => {

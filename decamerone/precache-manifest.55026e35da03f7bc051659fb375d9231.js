@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "df1f1206a70d064f1bf7a6c6e959111c",
+    "revision": "f4846f9b1a6399afd7db1d3e7891c22e",
     "url": "/~lottalau/decamerone/index.html"
   },
   {
-    "revision": "10cbd9112de6de0215fd",
+    "revision": "571a0cf1627268ddc7fa",
     "url": "/~lottalau/decamerone/static/css/main.00b58d80.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "10cbd9112de6de0215fd",
-    "url": "/~lottalau/decamerone/static/js/main.09ce8179.chunk.js"
+    "revision": "571a0cf1627268ddc7fa",
+    "url": "/~lottalau/decamerone/static/js/main.b5526a95.chunk.js"
   },
   {
     "revision": "7a2b2d7a6b9ae9659801",
