@@ -13,6 +13,8 @@ export const NavBar = () => {
         switch (window.location.pathname) {
             case '/':
                 return 'Etusivu';
+            case '/~lottalau/decamerone/':
+                return 'Etusivu';
             case '/tietoa':
                 return 'Tietoja';
             case '/kirjoitukset':

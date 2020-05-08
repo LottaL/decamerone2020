@@ -421,6 +421,10 @@ input[type="checkbox"] {
   margin-left: 1vh;
 }
 
+.LoginRegister {
+  margin-bottom: 4vh;
+}
+
 .LoginRegister form {
   width: 50%;
 }

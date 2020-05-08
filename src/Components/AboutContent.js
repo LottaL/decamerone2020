@@ -53,9 +53,20 @@ export const AboutContent = () => {
                 <p>
                     Projekti on jälleen laajentanut React-osaamista: erityisesti Context API on tullut tutuksi. 
                     Käyttäjätutkimuksen osalta heuristisen arvioinnin tekeminen oli uutta, vaikka konsepti olikin 
-                    viime keväältä tuttu. Jos tekisin projektin uudelleen, ajoittaisin sen niin, että käyttäjätestejä 
+                    viime keväältä tuttu.
+                </p>
+                <p>
+                    Jos tekisin projektin uudelleen, ajoittaisin sen niin, että käyttäjätestejä 
                     voisi tehdä käyttäjien kanssa, sillä näissä oloissa käytettävyystestaus jäi parhaassakin 
-                    tapauksessa mututuntuman varaan.
+                    tapauksessa mututuntuman varaan. Jostain syystä rakensin myös osan komponenteista alun perin 
+                    todella kummalliseen muotoon, mikä kostautui viimeistään ulkoasua silotellessa. Wrapper divejä 
+                    ei pitäisi vierastaa näin kovasti.
+                </p>
+                <p>
+                    Onnistuneimmaksi tässä kokonaisuudessa koen oman riman asettamisen: olisin varmasti saanut 
+                    palveluun lisäominaisuuksia ja parannettua nykyisiäkin, mutta päätin etten aio menettää yöuniani 
+                    suorittaessani kahta opintokokonaisuutta kerralla. Tämä tavoite toteutui niin, että tämän 
+                    sooloprojektin lopputuote on jopa varsin kelvollinen.
                 </p>
             </div>
             <div id='signature'>~ Lotta Laukkanen ~</div>

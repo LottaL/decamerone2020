@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/~lottalau/decamerone/static/css/main.00b58d80.chunk.css",
+    "main.js": "/~lottalau/decamerone/static/js/main.09ce8179.chunk.js",
+    "main.js.map": "/~lottalau/decamerone/static/js/main.09ce8179.chunk.js.map",
+    "runtime-main.js": "/~lottalau/decamerone/static/js/runtime-main.76ed65c1.js",
+    "runtime-main.js.map": "/~lottalau/decamerone/static/js/runtime-main.76ed65c1.js.map",
+    "static/js/2.e371429c.chunk.js": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js",
+    "static/js/2.e371429c.chunk.js.map": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js.map",
+    "index.html": "/~lottalau/decamerone/index.html",
+    "precache-manifest.a3efc2e31a2f74aa4c57642c4820f9a7.js": "/~lottalau/decamerone/precache-manifest.a3efc2e31a2f74aa4c57642c4820f9a7.js",
+    "service-worker.js": "/~lottalau/decamerone/service-worker.js",
+    "static/css/main.00b58d80.chunk.css.map": "/~lottalau/decamerone/static/css/main.00b58d80.chunk.css.map",
+    "static/js/2.e371429c.chunk.js.LICENSE.txt": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js.LICENSE.txt",
+    "static/media/Decamerone.jpg": "/~lottalau/decamerone/static/media/Decamerone.b092afbc.jpg",
+    "static/media/DefaultUser.jpg": "/~lottalau/decamerone/static/media/DefaultUser.9b2edc6b.jpg",
+    "static/media/arvio.jpg": "/~lottalau/decamerone/static/media/arvio.b2897559.jpg",
+    "static/media/kokeilu1.jpg": "/~lottalau/decamerone/static/media/kokeilu1.6ac22211.jpg",
+    "static/media/kokeilu2.jpg": "/~lottalau/decamerone/static/media/kokeilu2.e0f44a05.jpg",
+    "static/media/lotta.jpg": "/~lottalau/decamerone/static/media/lotta.d1eb54ab.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.76ed65c1.js",
+    "static/js/2.e371429c.chunk.js",
+    "static/css/main.00b58d80.chunk.css",
+    "static/js/main.09ce8179.chunk.js"
+  ]
+}

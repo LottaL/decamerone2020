@@ -35,7 +35,7 @@ function App() {
                 <Route exact path="/">
                   <Home />
                 </Route>
-                <Route exact path="/~lottalau/proto/">
+                <Route exact path="/~lottalau/decamerone/">
                   <Home/>
                 </Route>
                 <Route path="/tietoa">

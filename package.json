@@ -1,6 +1,6 @@
 {
   "name": "decamerone",
-  "homepage": "http://users.metropolia.fi/~lottalau/proto/",
+  "homepage": "http://users.metropolia.fi/~lottalau/decamerone/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
