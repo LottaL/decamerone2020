@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/~lottalau/decamerone/static/css/main.00b58d80.chunk.css",
-    "main.js": "/~lottalau/decamerone/static/js/main.b5526a95.chunk.js",
-    "main.js.map": "/~lottalau/decamerone/static/js/main.b5526a95.chunk.js.map",
+    "main.js": "/~lottalau/decamerone/static/js/main.57ba7108.chunk.js",
+    "main.js.map": "/~lottalau/decamerone/static/js/main.57ba7108.chunk.js.map",
     "runtime-main.js": "/~lottalau/decamerone/static/js/runtime-main.76ed65c1.js",
     "runtime-main.js.map": "/~lottalau/decamerone/static/js/runtime-main.76ed65c1.js.map",
     "static/js/2.e371429c.chunk.js": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js",
     "static/js/2.e371429c.chunk.js.map": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js.map",
     "index.html": "/~lottalau/decamerone/index.html",
-    "precache-manifest.55026e35da03f7bc051659fb375d9231.js": "/~lottalau/decamerone/precache-manifest.55026e35da03f7bc051659fb375d9231.js",
+    "precache-manifest.58b9a19f65292d090b7bf8be8bebc363.js": "/~lottalau/decamerone/precache-manifest.58b9a19f65292d090b7bf8be8bebc363.js",
     "service-worker.js": "/~lottalau/decamerone/service-worker.js",
     "static/css/main.00b58d80.chunk.css.map": "/~lottalau/decamerone/static/css/main.00b58d80.chunk.css.map",
     "static/js/2.e371429c.chunk.js.LICENSE.txt": "/~lottalau/decamerone/static/js/2.e371429c.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.76ed65c1.js",
     "static/js/2.e371429c.chunk.js",
     "static/css/main.00b58d80.chunk.css",
-    "static/js/main.b5526a95.chunk.js"
+    "static/js/main.57ba7108.chunk.js"
   ]
 }

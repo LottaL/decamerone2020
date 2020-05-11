@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <UserContextProvider>
           <TextListContextProvider>
             <TextContextProvider>
@@ -35,9 +35,7 @@ function App() {
                 <Route exact path="/">
                   <Home />
                 </Route>
-                <Route exact path="/~lottalau/decamerone/">
-                  <Home/>
-                </Route>
+
                 <Route path="/tietoa">
                   <About />
                 </Route>
